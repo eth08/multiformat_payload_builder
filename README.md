@@ -7,9 +7,9 @@ A multi-format payload builder designed to obfuscate and encode raw payloads. It
 
 ## Features
 
-- Accepts local files or remote files (HTTP/HTTPS).  
-- Multi-layer encoding pipeline: XOR → substitution table → bit-rotation, then Base64.  
-- Output is a JSON object containing the encoded payload and the metadata required for decoding.  
+- Accepts local files or remote files (HTTP/HTTPS).
+- Multi-layer encoding pipeline: XOR → substitution table → bit-rotation, then Base64.
+- Output is a JSON object containing the encoded payload and the metadata required for decoding.
 - Simple CLI for quick usage.
 - Minimal dependencies.
 
@@ -76,15 +76,15 @@ The output file is JSON with two top-level keys: `p` (payload) and `m` (metadata
       }
     }
 
-- `p` — final payload after XOR → substitution → bit-rotation, then Base64-encoded.  
+- `p` — final payload after XOR → substitution → bit-rotation, then Base64-encoded.
 - `m` — metadata required to reverse the process (needed by a legitimate decoder).
 
 ## How it works (high level)
 
 The encoder applies three transformation layers in this order:
 
-1. **XOR** with a single-byte key (random, 1–255).  
-2. **Substitution**: a byte-wise substitution using a random permutation of 0–255 (a generated substitution table).  
+1. **XOR** with a single-byte key (random, 1–255).
+2. **Substitution**: a byte-wise substitution using a random permutation of 0–255 (a generated substitution table).
 3. **Bit-rotation**: rotate bits of each byte by a small amount (random, 1–7).
 
 After those transformations, the result is Base64-encoded for safe transport. The substitution table and numeric parameters are stored (substitution table encoded as Base64) in the metadata block so a compatible decoder can reconstruct the original input. See the source for exact details and implementation.
@@ -93,9 +93,9 @@ After those transformations, the result is Base64-encoded for safe transport. Th
 
 This tool performs payload obfuscation and can be misused to conceal malicious code. Use and distribution of this project must comply with all applicable laws and policies.
 
-- **Do not** use this tool to create, distribute, or deploy malware, ransomware, or any code intended to harm or access systems without explicit authorization.  
-- Use only on files and systems you own or have explicit, written permission to test.  
-- For defensive research, penetration testing, or red-team exercises, obtain clear written authorization and follow organizational policies and responsible-disclosure practices.  
+- **Do not** use this tool to create, distribute, or deploy malware, ransomware, or any code intended to harm or access systems without explicit authorization.
+- Use only on files and systems you own or have explicit, written permission to test.
+- For defensive research, penetration testing, or red-team exercises, obtain clear written authorization and follow organizational policies and responsible-disclosure practices.
 - The current implementation stores decoding metadata alongside the encoded payload. Treat files and metadata carefully and consider adding HMAC/signatures or encrypting metadata for added safety.
 
 The project maintainers are not responsible for misuse. If you are unsure whether your intended use is lawful or ethical, consult legal and security professionals before proceeding.
