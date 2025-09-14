@@ -10,7 +10,7 @@ A multi-format payload builder designed to obfuscate and encode raw payloads. It
 - Accepts local files or remote files (HTTP/HTTPS).  
 - Multi-layer encoding pipeline: XOR → substitution table → bit-rotation, then Base64.  
 - Output is a JSON object containing the encoded payload and the metadata required for decoding.  
-- Simple CLI for quick usage.  
+- Simple CLI for quick usage.
 - Minimal dependencies.
 
 ## Installation
