@@ -19,7 +19,7 @@ To set up the application, you'll first need to install the required Python pack
 
 1.  **Clone the repository (or download the script):**
     ```bash
-    git clone [https://github.com/eth08/multiformat_payload_builder.git](https://github.com/eth08/multiformat_payload_builder.git)
+    git clone https://github.com/eth08/multiformat_payload_builder.git
     cd multiformat_payload_builder
     ```
 
