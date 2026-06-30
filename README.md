@@ -99,7 +99,3 @@ This tool performs payload obfuscation and can be misused to conceal malicious c
 - The current implementation stores decoding metadata alongside the encoded payload. Treat files and metadata carefully and consider adding HMAC/signatures or encrypting metadata for added safety.
 
 The project maintainers are not responsible for misuse. If you are unsure whether your intended use is lawful or ethical, consult legal and security professionals before proceeding.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
